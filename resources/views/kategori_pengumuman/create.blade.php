@@ -8,10 +8,9 @@
                 <div class="card-header">Tambah Kategori Pengumuman</div>
 
                 <div class="card-body">
-                		<form method="post" action="{!! route('kategori_pengumuman.store') !!}">
-                				@include('kategori_pengumuman.form')
-                		</form>
-
+                		{!! Form::open(['route' => 'kategori_pengumuman.store','method' => 'post']) !!}
+                                @include('kategori_pengumuman.form')
+                        {!! Form::close() !!}
 
                 </div>  
             </div>

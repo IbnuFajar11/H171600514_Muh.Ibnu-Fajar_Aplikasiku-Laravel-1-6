@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Kategori Artikel</div>
+                <div class="card-header">Form Kategori Artikel</div>
 
                 <div class="card-body">
 
@@ -33,6 +33,18 @@
 			<td>
 				<a href="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat
 				</a>
+				<p></p>
+				<a href="{!! route('kategori_artikel.edit',[$item->id]) !!}" class="btn btn-sm btn-primary">Ubah
+				</a>
+
+				<p></p>
+
+				{!! Form::open(['route' => ['kategori_artikel.destroy', $item->id], 'method'=>'delete']) !!}
+
+				{!! Form::submit('Hapus', ['class' => 'btn btn-sm btn-danger','onclick'=>"return confirm('Apakah Kamu Yakin Ingin Menghapus Data Ini ?')"]); !!}
+
+				{!! Form::close() !!}
+
 			</td>
 		</tr>
 

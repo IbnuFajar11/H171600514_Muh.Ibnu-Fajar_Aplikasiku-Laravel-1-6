@@ -38,6 +38,54 @@ class BeritaController extends Controller
 		Berita::create($input);
 
 		return redirect(route('berita.index'));
+	}
 
+	public function edit($id){
+
+		$Berita=Berita::find($id);
+
+		if(empty($Berita)){
+
+		return redirect(route('berita.index'));
+		}
+
+		$KategoriBerita=KategoriBerita::pluck('nama','id');
+
+		return view('berita.edit', compact('Berita','KategoriBerita'));
+	}
+
+	public function update($id,Request $request){
+
+		$Berita=Berita::find($id);
+		$input=$request->all();
+
+		if(empty($Berita)){
+
+		return redirect(route('berita.index'));
+		}
+
+		$Berita->update($input);
+		return redirect(route('berita.index'));
+	}
+
+	public function destroy($id){
+
+		$Berita=Berita::find($id);
+
+	if(empty($Berita)){
+
+		return redirect(route('berita.index'));
+		}
+
+		$Berita->delete();
+		return redirect(route('berita.index'));
+} 
+
+	public function trash(){
+   
+   		 $listBerita=Berita::onlyTrashed(); 
+
+    	return view('Berita.index', compact('listBerita'));
+   
 	}
 }

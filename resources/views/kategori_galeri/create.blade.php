@@ -9,11 +9,9 @@
                 <div class="card-header">Tambah Kategori Galeri</div>
 
                 <div class="card-body">
-                        <form method="post" action="{!! route('kategori_galeri.store') !!}">
-                                @include('kategori_galeri.form')
-                        </form>
-
-
+                         {!! Form::open(['route' => 'kategori_galeri.store','method' => 'post']) !!}
+                                @include('kategori_berita.form')
+                        {!! Form::close() !!}
                 </div>  
             </div>
         </div>

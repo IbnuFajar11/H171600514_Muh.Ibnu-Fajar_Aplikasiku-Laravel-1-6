@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Pengumuman</div>
+                <div class="card-header">Form Pengumuman</div>
                 
                 <div class="card-body">
                          <div class="form-group row">
@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="form-group row">
-                         <label  class="col-md-4 col-form-label text-md-right">Nama</label>
+                         <label  class="col-md-4 col-form-label text-md-right">Judul</label>
                          <label  class="col-md-8 col-form-label text-md-left">{!! $Pengumuman->judul !!}</label>
                     </div>
 
@@ -49,7 +49,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <a href="{!! route('pengumuman.index')!!}" class="btn btn-success">
+                            <a href="{!! route('pengumuman.index')!!}" class="btn btn-danger">
                                 Back
                             </a>
                         </div>

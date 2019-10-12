@@ -40,4 +40,53 @@ class GaleriController extends Controller
 		return redirect(route('galeri.index'));
 
 	}
+
+	public function edit($id){
+
+		$Galeri=Galeri::find($id);
+
+		if(empty($Galeri)){
+
+		return redirect(route('galeri.index'));
+		}
+
+		$KategoriGaleri=KategoriGaleri::pluck('nama','id');
+
+		return view('galeri.edit', compact('Galeri','KategoriGaleri'));
+	}
+
+	public function update($id,Request $request){
+
+		$Galeri=Galeri::find($id);
+		$input=$request->all();
+
+		if(empty($Galeri)){
+
+		return redirect(route('galeri.index'));
+		}
+
+		$Galeri->update($input);
+		return redirect(route('galeri.index'));
+	}
+
+	public function destroy($id){
+
+		$Galeri=Galeri::find($id);
+
+	if(empty($Galeri)){
+
+		return redirect(route('galeri.index'));
+		}
+
+		$Galeri->delete();
+		return redirect(route('galeri.index'));
+} 
+
+	public function trash(){
+   
+   		 $listGaleri=Galeri::onlyTrashed(); 
+
+    	return view('Galeri.index', compact('listGaleri'));
+   
+	}
 }
